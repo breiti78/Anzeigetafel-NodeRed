@@ -10,7 +10,7 @@
         "id": "e9a7b40f.73dbd8",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "192.168.1.116",
+        "broker": "mqtt",
         "port": "1883",
         "clientid": "",
         "usetls": false,
@@ -160,10 +160,10 @@
         "name": "",
         "topic": "",
         "qos": "",
-        "retain": "",
+        "retain": "false",
         "broker": "e9a7b40f.73dbd8",
-        "x": 930,
-        "y": 180,
+        "x": 1290,
+        "y": 160,
         "wires": []
     },
     {
@@ -171,11 +171,11 @@
         "type": "mqtt in",
         "z": "f6f2187d.f17ca8",
         "name": "",
-        "topic": "house/screen/#",
+        "topic": "anzeigetafel/#",
         "qos": "2",
         "datatype": "auto",
         "broker": "e9a7b40f.73dbd8",
-        "x": 140,
+        "x": 130,
         "y": 140,
         "wires": [
             [
@@ -191,9 +191,9 @@
         "label": "",
         "tooltip": "",
         "group": "df0bd2ec.00cc2",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "order": 1,
+        "width": "4",
+        "height": "1",
         "passthru": false,
         "mode": "text",
         "delay": 300,
@@ -223,6 +223,11 @@
         "multiple": false,
         "options": [
             {
+                "label": "Aus",
+                "value": "blank",
+                "type": "str"
+            },
+            {
                 "label": "Welcome",
                 "value": "welcome",
                 "type": "str"
@@ -230,11 +235,6 @@
             {
                 "label": "Zeit",
                 "value": "time",
-                "type": "str"
-            },
-            {
-                "label": "Aus",
-                "value": "blank",
                 "type": "str"
             },
             {
@@ -261,7 +261,7 @@
         "payload": "",
         "topic": "anzeigetafel/mode",
         "topicType": "str",
-        "x": 660,
+        "x": 680,
         "y": 40,
         "wires": [
             [
@@ -277,16 +277,16 @@
         "label": "",
         "tooltip": "",
         "group": "df0bd2ec.00cc2",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "order": 4,
+        "width": "4",
+        "height": "1",
         "passthru": false,
         "mode": "text",
         "delay": 300,
         "topic": "anzeigetafel/line2",
         "topicType": "str",
         "x": 670,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "89bf3daa.33f69"
@@ -301,16 +301,16 @@
         "label": "",
         "tooltip": "",
         "group": "df0bd2ec.00cc2",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "order": 6,
+        "width": "4",
+        "height": "1",
         "passthru": true,
         "mode": "text",
         "delay": 300,
         "topic": "anzeigetafel/line3",
         "topicType": "str",
         "x": 670,
-        "y": 220,
+        "y": 300,
         "wires": [
             [
                 "89bf3daa.33f69"
@@ -325,16 +325,16 @@
         "label": "",
         "tooltip": "",
         "group": "df0bd2ec.00cc2",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "order": 8,
+        "width": "4",
+        "height": "1",
         "passthru": false,
         "mode": "text",
         "delay": 300,
         "topic": "anzeigetafel/line4",
         "topicType": "str",
         "x": 670,
-        "y": 280,
+        "y": 400,
         "wires": [
             [
                 "89bf3daa.33f69"
@@ -349,16 +349,16 @@
         "label": "",
         "tooltip": "",
         "group": "df0bd2ec.00cc2",
-        "order": 0,
-        "width": "0",
-        "height": "0",
+        "order": 10,
+        "width": "4",
+        "height": "1",
         "passthru": false,
         "mode": "text",
         "delay": 300,
         "topic": "anzeigetafel/line5",
         "topicType": "str",
         "x": 670,
-        "y": 340,
+        "y": 520,
         "wires": [
             [
                 "89bf3daa.33f69"
@@ -395,6 +395,241 @@
             ],
             [
                 "8813c2b8.b9311"
+            ]
+        ]
+    },
+    {
+        "id": "49e09951.71a668",
+        "type": "ui_dropdown",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "df0bd2ec.00cc2",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Rôt",
+                "value": "red",
+                "type": "str"
+            },
+            {
+                "label": "Gelb",
+                "value": "yellow",
+                "type": "str"
+            },
+            {
+                "label": "Blau",
+                "value": "blue",
+                "type": "str"
+            },
+            {
+                "label": "Grün",
+                "value": "green",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "anzeigetafel/color1",
+        "topicType": "str",
+        "x": 680,
+        "y": 140,
+        "wires": [
+            [
+                "89bf3daa.33f69"
+            ]
+        ]
+    },
+    {
+        "id": "2b232a50.ddebf6",
+        "type": "ui_dropdown",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "df0bd2ec.00cc2",
+        "order": 5,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Rôt",
+                "value": "red",
+                "type": "str"
+            },
+            {
+                "label": "Gelb",
+                "value": "yellow",
+                "type": "str"
+            },
+            {
+                "label": "Blau",
+                "value": "blue",
+                "type": "str"
+            },
+            {
+                "label": "Grün",
+                "value": "green",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "anzeigetafel/color2",
+        "topicType": "str",
+        "x": 680,
+        "y": 240,
+        "wires": [
+            [
+                "89bf3daa.33f69"
+            ]
+        ]
+    },
+    {
+        "id": "ab0707c3.4deb48",
+        "type": "ui_dropdown",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "df0bd2ec.00cc2",
+        "order": 7,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Rôt",
+                "value": "red",
+                "type": "str"
+            },
+            {
+                "label": "Gelb",
+                "value": "yellow",
+                "type": "str"
+            },
+            {
+                "label": "Blau",
+                "value": "blue",
+                "type": "str"
+            },
+            {
+                "label": "Grün",
+                "value": "green",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "anzeigetafel/color3",
+        "topicType": "str",
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "89bf3daa.33f69"
+            ]
+        ]
+    },
+    {
+        "id": "a83138a8.83a258",
+        "type": "ui_dropdown",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "df0bd2ec.00cc2",
+        "order": 9,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Rôt",
+                "value": "red",
+                "type": "str"
+            },
+            {
+                "label": "Gelb",
+                "value": "yellow",
+                "type": "str"
+            },
+            {
+                "label": "Blau",
+                "value": "blue",
+                "type": "str"
+            },
+            {
+                "label": "Grün",
+                "value": "green",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "anzeigetafel/color4",
+        "topicType": "str",
+        "x": 680,
+        "y": 460,
+        "wires": [
+            [
+                "89bf3daa.33f69"
+            ]
+        ]
+    },
+    {
+        "id": "90e20c9d.c3ff2",
+        "type": "ui_dropdown",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "df0bd2ec.00cc2",
+        "order": 11,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Rôt",
+                "value": "red",
+                "type": "str"
+            },
+            {
+                "label": "Gelb",
+                "value": "yellow",
+                "type": "str"
+            },
+            {
+                "label": "Blau",
+                "value": "blue",
+                "type": "str"
+            },
+            {
+                "label": "Grün",
+                "value": "green",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "anzeigetafel/color5",
+        "topicType": "str",
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "89bf3daa.33f69"
             ]
         ]
     }
